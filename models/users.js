@@ -31,6 +31,10 @@ const userSchema = new mongoose.Schema({
     },
     org: {
         type: String
+    },
+    quizes: {
+        type: Array,
+        default: []
     }
 });
 
