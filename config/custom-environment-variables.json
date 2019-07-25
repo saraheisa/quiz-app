@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "quizApp_jwtPrivateKey",
+    "db":"quiz-app"
+}
