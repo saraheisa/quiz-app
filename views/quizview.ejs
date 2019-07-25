@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz App</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div home-container>
+            <div class="logout">
+                <a href="http://">logout</a>
+            </div>
+
+            <div>
+                <img src="quiz.png" alt="profile picture">
+            </div>
+
+            <div class="data">
+                <h1>quiz name</h1>
+                <h4>17/8/2019</h4>
+            </div>
+
+            <div class="addQ">
+                <img src="add.png" alt="add question">
+            </div>
+
+            <div id="questions">
+                <div class="question">
+                    <h2>question</h2>
+                    <button class="rounded">edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="queModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" name="question" id="que" placeholder="question">
+                <div class="addAnswer">
+                    <img src="add.png" width="25" height="25" alt="add answer">
+                </div>
+                <div id="answers"></div>
+                <textarea name="explanation" id="explanation" rows="5" placeholder="Enter an Explanation for the answer..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <input type="button" value="add question" id="addQue">
+            </div>
+        </div>
+    </div>
+
+    <script src="quizView.js"></script>
+
+</body>
+</html>
