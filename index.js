@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
 const winston=require('winston');
+const path = require('path');
+const bodyParser = require('body-parser');
+
+app.use(express.static(path.join(__dirname, '/public')));
+app.set('view engine', 'ejs');
+app.set('views', './views');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./startup/prod')(app);
 require('./startup/routes')(app);
