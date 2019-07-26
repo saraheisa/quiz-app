@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey": "quizApp_jwtPrivateKey",
-    "db":"quiz-app"
+    "db":"mongodb://sarah:fbdLtL#*k*f749Qb3bPB@ds353957.mlab.com:53957/quiz-app"
 }
