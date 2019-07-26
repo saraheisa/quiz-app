@@ -30,7 +30,8 @@ const userSchema = new mongoose.Schema({
         maxlength: 1024
     },
     org: {
-        type: String
+        type: String,
+        default: ''
     },
     quizes: {
         type: Array,
@@ -52,7 +53,8 @@ function validateUser(user) {
         fName: joi.string().min(3).max(255).required(),
         lName: joi.string().min(3).max(255).required(),
         email: joi.string().min(5).max(255).required().email(),
-        password: joi.string().min(5).max(1024).required()
+        password: joi.string().min(5).max(1024).required(),
+        org: joi.string()
     };
     return joi.validate(user, schema);
 }
