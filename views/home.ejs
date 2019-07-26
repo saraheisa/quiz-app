@@ -6,45 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quiz App</title>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="container">
         <div home-container>
             <div class="logout">
-                <a href="http://">logout</a>
+                <a href="/login">logout</a>
             </div>
 
             <div>
-                <img src="profilePicture.png" alt="profile picture">
+                <img src="includes/images/profilePicture.png" alt="profile picture">
             </div>
 
             <div class="data">
-                <h1>first last</h1>
-                <h4>organization</h4>
+                <h1><%=name%></h1>
+                <h4><%=org%></h4>
             </div>
 
             <div class="addQ">
-                <img src="add.png" alt="add quiz">
+                <img src="includes/images/add.png" alt="add quiz">
             </div>
 
-            <div id="quizes">
-                <div class="quiz">
-                    <div class="details">
-                        <h2>quiz name</h2>
-                        <small>12/12/2012</small>
-                    </div>
-                    <div class="topic">
-                        <span>programming</span>
-                    </div>
-                    <div class="action">
-                        <button class="rounded">edit</button>
-                    </div>
-                </div>
-            </div>
+            <div id="quizes"></div>
         </div>
     </div>
 
@@ -63,7 +47,13 @@
         </div>
     </div>
 
-    <script src="home.js"></script>
+    <script src="js/home.js"></script>
+    <script>
+        const token = <%- JSON.stringify(token) %>
+        window.localStorage.setItem('token', token);
+        const userQuizes = <%- JSON.stringify(quizes) %>
+        userQuizes.forEach(addQuizToUI);
+    </script>
 
 </body>
 </html>
