@@ -1,21 +1,25 @@
 const joi = require('joi');
 const mongoose = require('mongoose');
 
-const queSchema = new mongoose.Schema({
+const quizSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         maxlength: 255
     },
-    topiic: {
+    topic: {
         type: String,
         required: true,
         maxlength: 255
     },
     date: {
-        type: Date,
+        type: String,
+        required: true
+    },
+    isPublished: {
+        type: Boolean,
         required: true,
-        default: Date.now
+        default: false
     },
     questions: {
         type: Array,
@@ -23,17 +27,17 @@ const queSchema = new mongoose.Schema({
     }
 });
 
-const Question = mongoose.model('Question', queSchema);
+const Quiz = mongoose.model('Quiz', quizSchema);
 
-function validateQue(que) {
+function validateQuiz(quiz) {
     const schema = {
-        que: joi.string().max(255).required(),
-        answers: joi.array().min(2).required(),
-        correct: joi.string().required(),
-        explanation: joi.string().required()
+        name: joi.string().max(255).required(),
+        topic: joi.string().max(255).required(),
+        date: joi.string().required(),
+        isPublished: joi.boolean().required()
     };
-    return joi.validate(que, schema);
+    return joi.validate(quiz, schema);
 }
 
-exports.question = Question;
-exports.validate = validateQue;
+exports.Quiz = Quiz;
+exports.validate = validateQuiz;
