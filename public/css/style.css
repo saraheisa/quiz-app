@@ -214,6 +214,18 @@ hr{
     padding: 10px;
 }
 
+#publish{
+    width: 50%;
+    min-width: 300px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #9D50BB 0%, #6E48AA 51%, #9D50BB 100%);
+    color: #fff;
+    border: none;
+    height: 2.2em;
+    padding: 10px;
+}
+
 /* modal */
 .modal {
     display: none;
