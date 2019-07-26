@@ -9,34 +9,33 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
     crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="container">
         <div home-container>
             <div class="logout">
-                <a href="http://">logout</a>
+                <a href="/login">logout</a>
             </div>
 
             <div>
-                <img src="quiz.png" alt="profile picture">
+                <img src="includes/images/quiz.png" alt="profile picture">
             </div>
 
             <div class="data">
-                <h1>quiz name</h1>
-                <h4>17/8/2019</h4>
+                <h1><%= quiz.name%></h1>
+                <h4><%= quiz.date%></h4>
             </div>
-
+            <% if(!quiz.isPublished){ %>
             <div class="addQ">
-                <img src="add.png" alt="add question">
+                <img src="includes/images/add.png" alt="add question">
             </div>
 
-            <div id="questions">
-                <div class="question">
-                    <h2>question</h2>
-                    <button class="rounded">edit</button>
-                </div>
+            <div>
+                <button class="rounded" id="publish">publish</button>
             </div>
+            <% } %>
+            <div id="questions"></div>
         </div>
     </div>
 
@@ -48,7 +47,7 @@
             <div class="modal-body">
                 <input type="text" name="question" id="que" placeholder="question">
                 <div class="addAnswer">
-                    <img src="add.png" width="25" height="25" alt="add answer">
+                    <img src="includes/images/add.png" width="25" height="25" alt="add answer">
                 </div>
                 <div id="answers"></div>
                 <textarea name="explanation" id="explanation" rows="5" placeholder="Enter an Explanation for the answer..."></textarea>
@@ -59,7 +58,14 @@
         </div>
     </div>
 
-    <script src="quizView.js"></script>
+    <script src="js/quizView.js"></script>
+    <script>
+        const ques = <%- JSON.stringify(quiz.questions) %>;
+        const isPublished = <%- JSON.stringify(quiz.isPublished) %>;
+        const quizId = <%- JSON.stringify(quiz._id) %>;
+        const token = <%- JSON.stringify(token) %>
+        ques.forEach(addQueToUI);
+    </script>
 
 </body>
 </html>
