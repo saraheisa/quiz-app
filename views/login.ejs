@@ -6,23 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quiz App</title>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="container">
         <div login-container>
-            <button class="rounded google btn-grad">login with <i class="fab fa-google"></i></button>
-            <hr>
-            <form action="" method="post">
-                <input type="email" name="email" id="email" placeholder="e-mail" class="rounded">
-                <input type="password" name="password" id="password" placeholder="password" class="rounded">
+            <form action="/login" method="post">
+                <input type="email" name="email" id="email" placeholder="e-mail" class="rounded" required>
+                <input type="password" name="password" id="password" placeholder="password" class="rounded" required>
                 <small>forget password??</small>
                 <button type="submit" class="rounded btn-grad">login</button>
             </form>
-            <p><a href="http://">Create new account</a></p>
+            <p><a href="http://localhost:5000/signup">Create new account</a></p>
         </div>
     </div>
 </body>
