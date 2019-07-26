@@ -34,5 +34,5 @@ function validateQue(que) {
     return joi.validate(que, schema);
 }
 
-exports.question = Question;
+exports.Question = Question;
 exports.validate = validateQue;
